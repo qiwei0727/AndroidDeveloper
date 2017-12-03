@@ -1,0 +1,43 @@
+## 性能优化
+### 1. 布局优化
+
+工具：`Hierarchy Viewer`
+
+1. include复用布局
+2. merge合并UI布局：存在多层使用同一种布局类的嵌套视图
+3. ViewStub延迟加载目标视图
+
+> 注意原则：
+1. 尽量多使用RelativeLayout,不要使用绝对布局
+2. 在列表等组件中尽量避免使用LinearLayout的layout_weight
+3. 将可复用的组件抽取出来并通过inlude使用
+4. 使用ViewStub来加载一些不常用的布局
+5. 使用merge减少布局的嵌套层次。
+
+
+### 2. 内存优化
+1. 珍惜Services资源：IntentService
+2. 当UI隐藏时释放内存
+3. 当内存紧张时释放部分内存
+4. 检查你应该使用多少内存
+5. 避免bitmap的浪费
+6. 使用优化的数据容器：SparseArray替换HashMap
+7. 请注意内存开销
+8. 请注意代码的“抽象”
+9. 为序列化的数据使用nano protobufs
+10. 避免使用依赖注入框架
+11. 谨慎使用外部库
+12. 优化整体性能
+13. 使用Progurad来剔除不需要的代码
+14. 对最终的APK使用zipalign
+15. 使用多进程
+
+### 3. 内存泄漏
+> 工具：
+- Memory Monitor
+- LeakCanary
+
+
+
+
+
