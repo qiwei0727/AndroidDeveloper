@@ -9,11 +9,11 @@
 7. OPTIONS
 8. HTTP 可以替换以上7种
 #### 标记类注解
-1. FormUrlEncoded 表单请求
+1. FormUrlEncoded 表单请求    application/x-www-form-urlencoded
 
-2. Multipart 允许多个@Part
+2. Multipart 允许多个@Part     multipart/form-data
 
-3. Steaming 响应数据以流的形式返回，不使用默认会把全部数据加载到内存。
+3. Steaming 响应数据以流的形式返回，不使用默认会把全部数据加载到内存。下载大文件
 #### 参数类注解
 1. Header 动态请求头 Headers 静态请求头
 ```
@@ -52,7 +52,7 @@ public interface IServiceForPath{
 }
 ```
 
-4. Field  FieldMap 传输类型为键值对，配合FormUrlEncoded
+4. Field  FieldMap 传输类型为键值对，配合FormUrlEncoded使用
 ```
 public interface IServiceForPost{
   @FormUrlEncoded
@@ -93,9 +93,8 @@ public interface IServiceForQuery{
 
 ```
 
-
-
-
+#### 参考
+https://www.jianshu.com/p/f23be7f8cb93
 
 
 
