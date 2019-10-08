@@ -1,14 +1,54 @@
 ## 关系
 #### @ToOne
-  - joinProperty
-单向关联
+  - joinProperty指向目标实体的ID
+```
+@Entity
+public class Order{
+  @Id
+  private Long id;
+  
+  //不存在此参数，则自动创建一个附加列来保存键。
+  private long customerId;
+  
+  @ToOne(joinProperty = "customerId")
+  private Customer customer;
+}
 
-双向关联
+@Entity
+public class Customer{
+  @Id
+  private Long id;
+}
+
+```
 
 #### @ToMany
-  - referencedJoinProperty
+  - referencedJoinProperty参数：指定目标实体中指向该实体ID的“外键”属性的名称。
+```
+@Entity
+pulbic class Customer{
+  @Id
+  private Long id;
   
+  //@ToMany(referencedJoinProperty = "customerId")
+  @ToMany(joinProperties = {
+    @JoinProperty(name = "id", refre)
+  })
+  @OrderBy("date ASC")
+  private List<Order> orders;
+}
+
+@Entity
+public class Order{
+
+  @Id
+  private Long id;
+  private Date date;
+  private long customerId;
   
+}
+
+```
   
   
   
