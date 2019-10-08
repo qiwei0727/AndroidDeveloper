@@ -32,7 +32,7 @@ pulbic class Customer{
   
   //@ToMany(referencedJoinProperty = "customerId")
   @ToMany(joinProperties = {
-    @JoinProperty(name = "id", refre)
+    @JoinProperty(name = "id", refrerencedName = "customerId")
   })
   @OrderBy("date ASC")
   private List<Order> orders;
